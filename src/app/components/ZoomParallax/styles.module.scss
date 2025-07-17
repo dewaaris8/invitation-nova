@@ -1,0 +1,71 @@
+.container {
+  width: 100%;
+  max-width: 450px;
+  height: 300vh;
+  position: relative;
+  .sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background-color: #111111;
+    overflow: hidden;
+
+    .el {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .imageContainer {
+        position: relative;
+        width: 150px;
+        height: 25vh;
+        img {
+          object-fit: cover;
+        }
+      }
+      &:nth-of-type(2) {
+        .imageContainer {
+          top: -230px;
+          left: 75px;
+          width: 300px;
+          height: 180px;
+        }
+      }
+      &:nth-of-type(3) {
+        .imageContainer {
+          top: 230px;
+          left: -75px;
+          width: 300px;
+          height: 180px;
+        }
+      }
+      &:nth-of-type(4) {
+        .imageContainer {
+          left: 0px;
+          width: 100px;
+          height: 25vh;
+          opacity: 0;
+        }
+      }
+      &:nth-of-type(5) {
+        .imageContainer {
+          top: 105px;
+          left: 170px;
+          width: 150px;
+          height: 430px;
+        }
+      }
+      &:nth-of-type(6) {
+        .imageContainer {
+          top: -105px;
+          left: -170px;
+          width: 150px;
+          height: 430px;
+        }
+      }
+    }
+  }
+}
