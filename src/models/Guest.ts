@@ -3,17 +3,15 @@ import mongoose, { Schema, Document } from "mongoose";
 export interface IGuest extends Document {
   nama: string;
   ucapan: string;
-  konfirmasiKehadiran: "Hadir" | "Tidak Hadir" | "Mungkin";
+  konfirmasiKehadiran: string;
+  jumlahHadir: number; // <- pakai number lebih aman
 }
 
-const GuestSchema = new Schema<IGuest>({
+const GuestSchema: Schema = new Schema({
   nama: { type: String, required: true },
-  ucapan: { type: String, required: true },
-  konfirmasiKehadiran: {
-    type: String,
-    enum: ["Hadir", "Tidak Hadir", "Mungkin"],
-    required: true,
-  },
+  ucapan: { type: String, required: false },
+  konfirmasiKehadiran: { type: String, required: true },
+  jumlahHadir: { type: Number, required: true, default: 1 }, // <- default 1
 });
 
 export default mongoose.models.Guest ||

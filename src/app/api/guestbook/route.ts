@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
-import Guest, { IGuest } from "@/models/Guest";
+import Guest from "@/models/Guest";
 
 export async function GET() {
   try {
@@ -18,21 +18,22 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     await connectDB();
-    const { nama, ucapan, konfirmasiKehadiran } = await req.json();
+    const body = await req.json();
 
-    if (!nama || !ucapan || !konfirmasiKehadiran) {
-      return NextResponse.json(
-        { message: "All fields are required" },
-        { status: 400 }
-      );
-    }
-
-    const newGuest = new Guest({ nama, ucapan, konfirmasiKehadiran });
-    await newGuest.save();
+    const newGuest = await Guest.create({
+      nama: body.nama,
+      ucapan: body.ucapan,
+      konfirmasiKehadiran: body.konfirmasiKehadiran,
+      jumlahHadir: Number(body.jumlahHadir) || 1, // pastikan angka
+    });
 
     return NextResponse.json(newGuest, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ message: "Error adding data" }, { status: 500 });
+    console.error(error);
+    return NextResponse.json(
+      { message: "Error saving guest" },
+      { status: 500 }
+    );
   }
 }
 

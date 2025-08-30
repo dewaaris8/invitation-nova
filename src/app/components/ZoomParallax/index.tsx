@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import styles from "./styles.module.scss";
-import Pic1 from "../../../../public/images/nova7.jpg";
-import Pic2 from "../../../../public/images/nova3.jpg";
-import Pic3 from "../../../../public/images/nova4.1.jpg";
-import Pic4 from "../../../../public/images/nova10.jpg";
-import Pic5 from "../../../../public/images/nova9.jpg";
+import Pic1 from "../../../../public/images/Gallery tengah.png";
+import Pic2 from "../../../../public/images/Page 5 kanan atas.png";
+import Pic3 from "../../../../public/images/Page 5 kiri Bawah.png";
+import Pic4 from "../../../../public/images/kiriAtas.png";
+import Pic5 from "../../../../public/images/kananBawah.png";
 
 // import Pic1 from "../../../../public/images/bg1.jpg";
 // import Pic2 from "../../../../public/images/4.jpg";
