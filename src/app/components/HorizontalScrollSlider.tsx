@@ -16,11 +16,13 @@ const HorizontalScrollSlider = () => {
 
   // Image paths (from public folder)
   const pictures = [
-    "/images/nova8.1.jpg",
-    "/images/nova9.jpg",
-    "/images/nova11.jpg",
-    "/images/nova12.jpg",
-    "/images/nova13.jpg",
+    "/images/Gallery 1.png",
+    "/images/Gallery 2.png",
+    "/images/Gallery 3.png",
+    "/images/Gallery 4(1).png",
+    "/images/Gallery 4.png",
+    "/images/Gallery 5.png",
+    "/images/Gallery 7.png",
   ];
 
   useEffect(() => {

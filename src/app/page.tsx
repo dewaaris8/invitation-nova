@@ -12,7 +12,11 @@ import "aos/dist/aos.css";
 import HorizontalScrollSlider from "./components/HorizontalScrollSlider";
 import { useSearchParams } from "next/navigation";
 
-const images = ["/images/nova4.jpg", "/images/nova3.jpg", "/images/nova6.jpg"];
+const images = [
+  "/images/slide1.jpg",
+  "/images/slide2.jpg",
+  "/images/slide3.jpg",
+];
 
 export interface Guest {
   _id?: string;
@@ -113,7 +117,7 @@ export default function Home() {
     <div className="w-full relative bg-[#111111] h-max">
       {/* COVER ATAS */}
       <div
-        style={{ backgroundImage: "url('/images/Page 1.png')" }}
+        style={{ backgroundImage: "url('/images/page1.png')" }}
         className="w-full sticky left-0 top-0 h-[100vh] bg-cover bg-center bg-no-repeat"
       >
         <div className="lg:max-w-[450px] w-full text-center text-white h-[100vh] mx-auto flex flex-col justify-center items-center">
