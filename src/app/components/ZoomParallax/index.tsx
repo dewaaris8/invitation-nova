@@ -2,17 +2,11 @@
 
 import Image from "next/image";
 import styles from "./styles.module.scss";
-import Pic1 from "../../../../public/images/Gallery tengah.png";
-import Pic2 from "../../../../public/images/Page 5 kanan atas.png";
-import Pic3 from "../../../../public/images/Page 5 kiri Bawah.png";
+import Pic1 from "../../../../public/images/Gallery tengah.jpg";
+import Pic2 from "../../../../public/images/Page 5 kanan atas.jpg";
+import Pic3 from "../../../../public/images/Page 5 kiri Bawah.jpg";
 import Pic4 from "../../../../public/images/kiriAtas.png";
 import Pic5 from "../../../../public/images/kananBawah.png";
-
-// import Pic1 from "../../../../public/images/bg1.jpg";
-// import Pic2 from "../../../../public/images/4.jpg";
-// import Pic3 from "../../../../public/images/5.jpg";
-// import Pic4 from "../../../../public/images/cover2.jpg";
-// import Pic5 from "../../../../public/images/2.png";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 

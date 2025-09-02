@@ -59,10 +59,10 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             The Wedding of
           </h3>
           <h1 className="preloader-text lg:text-[80px] text-[40px] font-WindSong opacity-0">
-            Nova & Silvi
+            Dewa & Sylvana
           </h1>
           <p className="preloader-text text-[16px] font-Comfortaa tracking-[3px] opacity-0">
-            Monday, 10 September 2025
+            2 November 2025
           </p>
         </div>
       )}
