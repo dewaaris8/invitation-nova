@@ -198,7 +198,7 @@ export default function Home() {
             </div>
 
             {/* OM SWASTYASTU */}
-            <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
+            {/* <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
               <div
                 className="w-full h-[100px] top-[-60px] z-50 text-white text-center absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
                 style={{ backgroundImage: "url('/images/1.png')" }}
@@ -210,6 +210,28 @@ export default function Home() {
                 By the grace and blessings of Ida Sang Hyang Widhi Wasa/God
                 Almighty, we cordially invite you to our wedding ceremony
                 (Manusa Yadnya Pawiwahan)
+              </p>
+            </div> */}
+            <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
+              {/* background image pakai Image fill */}
+              <div className="absolute top-[-60px] w-full h-[100px] z-0">
+                <Image
+                  src="/images/1.png"
+                  alt="Decoration"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                  quality={80}
+                />
+              </div>
+
+              <h1 className="text-[30px] font-NotoSerif relative z-10">
+                ᬒᬁ ᬲ᭄ᬯᬲ᭄ᬢ᭄ᬬ <span className="ml-[5px]">ᬲ᭄ᬢᬸ</span>
+              </h1>
+              <p className="text-[10px] mt-5 font-Comfortaa w-[85%] relative z-10">
+                By the grace and blessings of Ida Sang Hyang Widhi Wasa/God
+                Almighty, we cordially invite you to our wedding ceremony
+                (Manusa Yadnya Pawiwahan)
               </p>
             </div>
 
@@ -225,9 +247,18 @@ export default function Home() {
                 <div className="flex flex-col">
                   <div
                     data-aos="fade-left"
-                    style={{ backgroundImage: "url('/images/nova3.jpg')" }}
-                    className="w-full bg-cover bg-center bg-no-repeat h-[450px] flex justify-start relative"
+                    className="w-full h-[450px] flex justify-start relative"
                   >
+                    {/* background image pakai next/image */}
+                    <Image
+                      src="/images/nova3.jpg"
+                      alt="Nova 3"
+                      fill
+                      className="object-cover object-center"
+                      priority
+                      quality={80}
+                    />
+                    {/* border decorations */}
                     <div className="absolute w-[30%] border-r-2 border-b-2 border-white h-[85%] right-[-5px] bottom-[-5px]" />
                     <div className="absolute w-[25%] border-r-2 border-b-2 border-[#e6c643] h-[80%] right-[-10px] bottom-[-10px]" />
                   </div>
@@ -243,9 +274,18 @@ export default function Home() {
 
                   <div
                     data-aos="fade-right"
-                    style={{ backgroundImage: "url('/images/nova4.jpg')" }}
-                    className="w-full bg-cover mt-10 bg-center bg-no-repeat h-[450px] flex justify-start relative"
+                    className="w-full h-[450px] flex justify-start relative mt-10"
                   >
+                    {/* background image pakai next/image */}
+                    <Image
+                      src="/images/nova4.jpg"
+                      alt="Nova 4"
+                      fill
+                      className="object-cover object-center"
+                      priority
+                      quality={80}
+                    />
+                    {/* border decorations */}
                     <div className="absolute w-[30%] border-l-2 border-t-2 border-white h-[85%] left-[-5px] top-[-5px]" />
                     <div className="absolute w-[25%] border-l-2 border-t-2 border-[#e6c643] h-[80%] left-[-10px] top-[-10px]" />
                   </div>
@@ -255,7 +295,7 @@ export default function Home() {
                       Sylvana Yulianti
                     </h1>
                     <p className="text-[10px] font-Comfortaa text-right w-full">
-                      Daughter of Mr. Sri Didik Purwanto & Mrs. Titik Sugiyanti
+                      Daughter of Mr. Sri Didik Purwanto & Mrs. Titik Sugiyanti
                     </p>
                   </div>
                 </div>
@@ -265,13 +305,23 @@ export default function Home() {
             {/* VIDEO (diganti placeholder gambar) */}
             <div className="w-full py-[100px] flex px-[10px] flex-col gap-5 items-center justify-center bg-[#111111] text-white h-max">
               <div className="w-[85%] h-[180px] max-h-[180px] flex justify-center relative">
+                {/* border dekorasi */}
                 <div className="absolute lg:top-[-5px] md:top-[-5px] w-[102%] z-10 top-[-7px] border-b-0 border-2 border-white h-[100%]" />
                 <div className="absolute lg:top-[-10px] md:top-[-10px] z-10 top-[-12px] border-b-0 w-[104%] border-2 border-[#e6c643] h-[100%]" />
-                <div
-                  data-aos="fade-up"
-                  style={{ backgroundImage: "url('/images/Page video.jpg')" }}
-                  className="w-full bg-cover bg-center bg-no-repeat flex h-[200px] justify-start relative"
-                />
+
+                {/* background image pakai next/image */}
+                <div data-aos="fade-up" className="w-full h-[200px] relative">
+                  <Image
+                    src="/images/Page video.jpg"
+                    alt="Page video"
+                    fill
+                    className="object-cover object-center"
+                    quality={80}
+                    priority
+                  />
+                </div>
+
+                {/* text */}
                 <h1 className="text-[18px] w-[85%] leading-[25px] font-charmonman absolute bottom-[-45px] font-light text-center">
                   Every time I see you, I find the comfort I’ve been searching
                   for.
@@ -280,52 +330,76 @@ export default function Home() {
             </div>
 
             {/* WEDDING EVENT */}
-            <div className="text-center relative bg-[#111111]  z-50 overflow-hidden mt-7 gap-2 py-[150px] flex text-white flex-col items-center justify-center px-[10px]">
-              <div className="absolute w-full inset-0 bg-[#111111] opacity-50" />
-              <div
-                className="w-full h-[200px] top-[-25px] z-50 absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                style={{ backgroundImage: "url('/images/hiasan3.png')" }}
-              />
-              <div
-                className="w-full h-[200px] bottom-[-0px] right-[-200px] z-50 absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                style={{ backgroundImage: "url('/images/hiasan5.png')" }}
-              />
-              <div
-                className="w-full h-[200px] bottom-[-0px] scale-x-[-1] right-[200px] z-50 absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                style={{ backgroundImage: "url('/images/hiasan5.png')" }}
-              />
+            <div className="text-center relative bg-[#111111] z-50 overflow-hidden mt-7 gap-2 py-[150px] flex text-white flex-col items-center justify-center px-[10px]">
+              {/* overlay hitam */}
+              <div className="absolute w-full inset-0 bg-[#111111] opacity-50 z-10" />
 
-              <h1 className="text-[13px] uppercase mt-10 z-50 font-Comfortaa tracking-[4px]">
+              {/* hiasan atas */}
+              <div className="absolute w-full h-[200px] top-[-25px] z-20 transition-all duration-1000">
+                <Image
+                  src="/images/hiasan3.png"
+                  alt="Hiasan 3"
+                  fill
+                  className="object-cover object-center"
+                  quality={80}
+                />
+              </div>
+
+              {/* hiasan kanan bawah */}
+              <div className="absolute w-full h-[200px] bottom-0 right-[-200px] z-20 transition-all duration-1000">
+                <Image
+                  src="/images/hiasan5.png"
+                  alt="Hiasan 5"
+                  fill
+                  className="object-cover object-center"
+                  quality={80}
+                />
+              </div>
+
+              {/* hiasan kiri bawah (mirror) */}
+              <div className="absolute w-full h-[200px] bottom-0 right-[200px] z-20 scale-x-[-1] transition-all duration-1000">
+                <Image
+                  src="/images/hiasan5.png"
+                  alt="Hiasan 5 mirrored"
+                  fill
+                  className="object-cover object-center"
+                  quality={80}
+                />
+              </div>
+
+              {/* konten utama */}
+              <h1 className="text-[13px] uppercase mt-10 z-30 font-Comfortaa tracking-[4px]">
                 our wedding event
               </h1>
-              <p className="text-[28px] mt-5 z-50 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
+              <p className="text-[28px] mt-5 z-30 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
                 Pawiwahan
               </p>
-              <p className="text-[12px] mt-5 z-50 uppercase tracking-[2px] font-Comfortaa w-[85%]">
+              <p className="text-[12px] mt-5 z-30 uppercase tracking-[2px] font-Comfortaa w-[85%]">
                 Sunday, November 2, 2025
               </p>
-              <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-50">
+              <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-30">
                 Time: 3:00 PM – 5:00 PM WITA
               </h1>
-              <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-50 tracking-[2px]">
+              <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-30 tracking-[2px]">
                 Taman Prakerti Bhuana
               </h1>
 
-              <p className="text-[28px] mt-5 z-50 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
+              <p className="text-[28px] mt-5 z-30 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
                 Resepsi
               </p>
-              <p className="text-[12px] mt-5 z-50 uppercase tracking-[2px] font-Comfortaa w-[85%]">
+              <p className="text-[12px] mt-5 z-30 uppercase tracking-[2px] font-Comfortaa w-[85%]">
                 Sunday, November 2, 2025
               </p>
-              <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-50">
+              <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-30">
                 Time: 5:00 PM – 8:00 PM WITA
               </h1>
-              <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-50 tracking-[2px]">
+              <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-30 tracking-[2px]">
                 Taman Prakerti Bhuana
               </h1>
-              <p className="text-[12px] uppercase mt-5 z-50 tracking-[2px] font-Comfortaa w-[85%]">
+              <p className="text-[12px] uppercase mt-5 z-30 tracking-[2px] font-Comfortaa w-[85%]">
                 Beng, Kabupaten <br /> Gianyar, Bali
               </p>
+
               <a
                 className="bg-gradient-to-r text-[13px] from-[#e6c643] to-[#c8a530] text-black mt-5 font-Comfortaa px-10 py-2 z-[100]"
                 href="https://maps.app.goo.gl/BDTCXj1127ALtCCD7"
@@ -343,12 +417,14 @@ export default function Home() {
             </div>
 
             {/* UCAPAN */}
-            <div
-              className="w-full  mt-[-250px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat"
-              style={{
-                backgroundImage: "url('/images/bgForm.jpg')",
-              }}
-            >
+            <div className="w-full  mt-[-250px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat">
+              <Image
+                src="/images/bgForm.jpg"
+                alt="Background RSVP"
+                fill
+                priority
+                className="object-cover object-[80%_40%] z-0"
+              />
               <div className="z-50">
                 <div className="w-[85%]  mx-auto">
                   <p className="text-left font-NotoSerif text-[23px]">
@@ -483,12 +559,18 @@ export default function Home() {
                   memories together at our event. Don’t miss it!
                 </p>
               </div>
-              <div
-                style={{
-                  backgroundImage: "url('/images/Thank you.jpg')",
-                }}
-                className="w-[75%] bg-[#ffffff] mt-5  h-[400px] bg-cover bg-center bg-no-repeat"
-              ></div>
+
+              {/* Ganti backgroundImage jadi Image fill */}
+              <div className="w-[75%] mt-5 h-[400px] relative">
+                <Image
+                  src="/images/Thank you.jpg"
+                  alt="Thank you"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
               <div className="flex flex-col justify-center items-center">
                 <h1 className="text-[30px] mt-5 font-NotoSerif">
                   ᬑᬁ ᬰᬦ᭄ᬢᬶ ᬰᬦ᭄ᬢᬶ ᬰᬦ᭄ᬢᬶ ᬑᬁ
