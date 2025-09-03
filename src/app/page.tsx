@@ -116,10 +116,14 @@ export default function Home() {
   return (
     <div className="w-full relative bg-[#111111] h-max">
       {/* COVER ATAS */}
-      <div
-        style={{ backgroundImage: "url('/images/Page 1.jpg')" }}
-        className="w-full sticky left-0 top-0 h-[100vh] bg-cover bg-center bg-no-repeat"
-      >
+      <div className="w-full sticky left-0 top-0 h-[100vh] ">
+        <Image
+          src="/images/Page 1.jpg"
+          alt="Wedding Background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
         <div className="lg:max-w-[450px] w-full text-center text-white h-[100vh] mx-auto flex flex-col justify-center items-center">
           <div className="relative w-full h-full pt-[100px]">
             <div className="absolute top-[50%] w-full text-center">
@@ -166,15 +170,22 @@ export default function Home() {
               {images.map((img, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
                     index === currentImage ? "opacity-100" : "opacity-0"
                   }`}
-                  style={{ backgroundImage: `url(${img})` }}
-                />
+                >
+                  <Image
+                    src={img}
+                    alt={`Slide ${index + 1}`}
+                    fill
+                    priority={index === 0} // slide pertama load cepat
+                    className="object-cover"
+                  />
+                </div>
               ))}
 
               {/* Overlay hitam */}
-              <div className="absolute w-full inset-0 bg-[#111111] opacity-50" />
+              <div className="absolute inset-0 bg-[#111111] opacity-50" />
 
               {/* Konten utama */}
               <div className="relative w-full h-full pt-[100px] z-10">
@@ -191,10 +202,14 @@ export default function Home() {
               </div>
 
               {/* Ornamen bawah */}
-              <div
-                className="w-full h-[100px] bottom-[-40px] z-40 text-white text-center absolute bg-cover bg-center"
-                style={{ backgroundImage: "url('/images/1.png')" }}
-              />
+              <div className="w-full h-[100px] bottom-[-40px] z-40 absolute">
+                <Image
+                  src="/images/1.png"
+                  alt="Ornament"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
 
             {/* OM SWASTYASTU */}
