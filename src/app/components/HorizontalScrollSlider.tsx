@@ -16,14 +16,14 @@ const HorizontalScrollSlider = () => {
 
   // Image paths (from public folder)
   const pictures = [
-    "/images/Gallery 1.webp",
-    "/images/Gallery 2.webp",
-    "/images/Gallery 3.webp",
-    "/images/Gallery 4.webp",
-    "/images/Gallery 5.webp",
-    "/images/Gallery 6.webp",
-    "/images/Gallery 7.webp",
-    "/images/Gallery 8.webp",
+    "/images/Gallery 1.jpg",
+    "/images/Gallery 2.jpg",
+    "/images/Gallery 3.jpg",
+    "/images/Gallery 4.jpg",
+    "/images/Gallery 5.jpg",
+    "/images/Gallery 6.jpg",
+    "/images/Gallery 7.jpg",
+    "/images/Gallery 8.jpg",
   ];
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const HorizontalScrollSlider = () => {
       {/* 🔹 Teks Atas (Bergerak Paralaks) */}
       <div
         ref={textTopRef}
-        className="absolute top-[60px] w-full text-center font-NotoSerif tracking-[3px] left-1/2  -translate-x-1/2 leading-10 text-white text-[28px] font-[400] "
+        className="absolute top-[40px] w-full text-center font-NotoSerif tracking-[3px] left-1/2  -translate-x-1/2 leading-10 text-white text-[28px] font-[400] "
       >
         Our Gallery <br />
         <span className="font-WindSong text-center text-white text-[40px] tracking-[0px]">
@@ -87,7 +87,7 @@ const HorizontalScrollSlider = () => {
       </div>
 
       {/* 🔹 Slider */}
-      <div className="sticky top-[50px] h-screen flex items-center overflow-hidden">
+      <div className="sticky top-[20px] h-screen flex items-center overflow-hidden">
         <div ref={scrollRef} className="flex gap-8 px-10 w-max">
           {pictures.map((src, index) => (
             <div key={index} className="w-[400px] h-[550px] flex-shrink-0">
@@ -109,14 +109,6 @@ const HorizontalScrollSlider = () => {
           </div>
         </div>
       </div>
-
-      {/* 🔹 Teks Bawah (Tetap Diam) */}
-      {/* <div
-        ref={textBottomRef}
-        className="absolute bottom-[200px] left-1/2 -translate-x-1/2 text-white text-4xl font-bold uppercase opacity-80"
-      >
-        Discover the Beauty
-      </div> */}
     </section>
   );
 };

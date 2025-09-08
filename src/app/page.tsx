@@ -125,7 +125,7 @@ export default function Home() {
           className="object-cover object-center"
         />
         <div className="lg:max-w-[450px] w-full text-center text-white h-[100vh] mx-auto flex flex-col justify-center items-center">
-          <div className="relative w-full h-full pt-[100px]">
+          <div className="relative w-full h-full  pt-[100px]">
             <div className="absolute top-[50%] w-full text-center">
               <h3 className="text-[13px] font-Comfortaa tracking-[2px]">
                 WE INVITE YOU TO <br /> CELEBRATE OUR WEDDING
@@ -427,12 +427,12 @@ export default function Home() {
               <ZoomParallax />
             </div>
 
-            <div className="min-h-screen text-white">
+            <div className="min-h-screen overflow-hidden text-white">
               <HorizontalScrollSlider />
             </div>
 
             {/* UCAPAN */}
-            <div className="w-full  mt-[-250px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat">
+            <div className="w-full  mt-[-600px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat">
               <Image
                 src="/images/bgForm.jpg"
                 alt="Background RSVP"
