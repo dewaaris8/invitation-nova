@@ -73,7 +73,10 @@ const HorizontalScrollSlider = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full overflow-hidden">
+    <section
+      ref={containerRef}
+      className="relative w-full h-[100vh] overflow-hidden"
+    >
       {/* 🔹 Teks Atas (Bergerak Paralaks) */}
       <div
         ref={textTopRef}

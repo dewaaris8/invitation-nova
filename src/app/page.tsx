@@ -427,12 +427,12 @@ export default function Home() {
               <ZoomParallax />
             </div>
 
-            <div className="min-h-screen overflow-hidden text-white">
+            <div className="h-max overflow-hidden text-white">
               <HorizontalScrollSlider />
             </div>
 
             {/* UCAPAN */}
-            <div className="w-full  mt-[-600px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat">
+            <div className="w-full  mt-[-500px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat">
               <Image
                 src="/images/bgForm.jpg"
                 alt="Background RSVP"
