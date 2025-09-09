@@ -11,8 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const HorizontalScrollSlider = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const textTopRef = useRef<HTMLDivElement | null>(null); // Teks atas (bergerak)
-  const textBottomRef = useRef<HTMLDivElement | null>(null); // Teks bawah (diam)
+  const textTopRef = useRef<HTMLDivElement | null>(null);
 
   // Image paths (from public folder)
   const pictures = [
@@ -62,7 +61,7 @@ const HorizontalScrollSlider = () => {
       scrollTrigger: {
         trigger: container,
         start: "top top",
-        end: `+=${totalWidth * 0.6}`, // Sesuaikan dengan animasi slider
+        end: `+=${totalWidth * 0.6}`,
         scrub: 1,
       },
     });
@@ -80,18 +79,18 @@ const HorizontalScrollSlider = () => {
       {/* 🔹 Teks Atas (Bergerak Paralaks) */}
       <div
         ref={textTopRef}
-        className="absolute top-[40px] w-full text-center font-NotoSerif tracking-[3px] left-1/2  -translate-x-1/2 leading-10 text-white text-[28px] font-[400] "
+        className="absolute top-[40px] w-full text-center font-NotoSerif tracking-[3px] left-1/2 -translate-x-1/2 leading-10 text-white text-[28px] font-[400]"
       >
         Our Gallery <br />
         <span className="font-WindSong text-center text-white text-[40px] tracking-[0px]">
-          <span className="text-[45px] ">N</span>ova &{" "}
-          <span className="text-[45px] ">S</span>ilvi
+          <span className="text-[45px]">N</span>ova &{" "}
+          <span className="text-[45px]">S</span>ilvi
         </span>
       </div>
 
       {/* 🔹 Slider */}
       <div className="sticky top-[20px] h-screen flex items-center overflow-hidden">
-        <div ref={scrollRef} className="flex gap-8 px-10 w-max">
+        <div ref={scrollRef} className="flex gap-8 px-10 w-max relative">
           {pictures.map((src, index) => (
             <div key={index} className="w-[400px] h-[550px] flex-shrink-0">
               <Image
@@ -100,13 +99,12 @@ const HorizontalScrollSlider = () => {
                 width={400}
                 height={500}
                 className="w-full h-full object-cover"
+                loading="eager" // 🚀 semua gambar langsung diload
               />
             </div>
           ))}
-          <div
-            // ref={textTopRef}
-            className="absolute top-[580px] font-MeieScript tracking-[3px] left-1/2 -translate-x-1/2 text-white text-[20px] font-[400]"
-          >
+          {/* 🔹 Text bawah (diam) */}
+          <div className="absolute top-[580px] font-MeieScript tracking-[3px] left-1/2 -translate-x-1/2 text-white text-[20px] font-[400]">
             Cherished moments, beautiful memories—relive the magic of our
             special day through our gallery.
           </div>
