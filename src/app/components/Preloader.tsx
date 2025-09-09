@@ -13,23 +13,13 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     if (!isClient) return;
 
-    // 🔹 Lock scroll & pastikan tidak ada overflow-x
-    document.body.style.overflow = "hidden";
-    document.body.style.overflowX = "hidden";
-
     const timeline = gsap.timeline();
 
     // Animasi teks
     timeline.fromTo(
       ".preloader-text",
       { opacity: 0, y: 30, filter: "blur(10px)" },
-      {
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-        duration: 1.2,
-        stagger: 0.5,
-      }
+      { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.2, stagger: 0.5 }
     );
 
     // Tahan sebentar
@@ -38,17 +28,12 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
     // Fade out preloader
     timeline.to(".preloader", {
       opacity: 0,
-      scale: 1.05, // 🔹 scale lebih kecil agar tidak keluar layar
+      scale: 1.1,
       duration: 1.5,
       ease: "power3.inOut",
-      onComplete: () => {
-        // 🔹 Balikin scroll normal
-        document.body.style.overflow = "";
-        document.body.style.overflowX = "";
-        onComplete();
-      },
+      onComplete: onComplete,
     });
-  }, [isClient, onComplete]);
+  }, [isClient]);
 
   if (!isClient) return null;
 
