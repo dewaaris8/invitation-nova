@@ -575,10 +575,10 @@ export default function Home() {
               {/* ... */}
               <div className="w-full text-center relative bg-[#111111] z-50 overflow-hidden gap-2 py-[100px] flex text-white flex-col items-center px-[10px] h-max">
                 <div className="flex flex-col justify-center items-center">
-                  <h1 className="text-[30px] font-NotoSerif">Thankyou</h1>
+                  <h1 className="text-[30px] font-NotoSerif">Thank You</h1>
                   <p className="text-[10px] mt-5 font-Comfortaa w-[70%]">
                     Looking forward to having you with us and creating special
-                    memories together at our event. Don’t miss it!
+                    memories together at our event.
                   </p>
                 </div>
 
