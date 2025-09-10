@@ -115,105 +115,111 @@ export default function Home() {
 
   return (
     <div className="w-full relative bg-[#111111] h-max">
-      {/* COVER ATAS */}
-      <div className="w-full sticky left-0 top-0 h-[100vh] ">
-        <Image
-          src="/images/Page 1.jpg"
-          alt="Wedding Background"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <div className="lg:max-w-[450px] w-full text-center text-white h-[100vh] mx-auto flex flex-col justify-center items-center">
-          <div className="relative w-full h-full  pt-[100px]">
-            <div className="absolute top-[50%] w-full text-center">
-              <h3 className="text-[13px] font-Comfortaa tracking-[2px]">
-                WE INVITE YOU TO <br /> CELEBRATE OUR WEDDING
-              </h3>
-              <h1 className="text-[40px] font-WindSong">Dewa &amp; Sylvana</h1>
-              <p className="text-[14px] font-Comfortaa">2 November 2025</p>
-            </div>
-
-            <div className="w-full text-center">
-              <h3 className="text-[18px]">Dear :</h3>
-              {to ? (
-                <p className="text-lg mt-2 text-[23px] text-[#e6c643]">{to}</p>
-              ) : (
-                <p className="text-lg mt-2 text-[23px] text-[#e6c643]">
-                  Tamu Undangan!
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="absolute bottom-10 flex flex-col items-center">
-            <p className="text-[12px] text-center font-Comfortaa uppercase tracking-[2px] text-white">
-              Please scroll <br /> to open invitation
-            </p>
-            <img
-              src="/images/gif2.gif"
-              alt="Scroll Down"
-              className="w-[100px] mt-2"
-            />
-          </div>
-        </div>
-      </div>
-
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
       {!isLoading && (
-        <div className="w-full flex z-10 relative h-max">
-          <div className="w-full bg-[#111111] md:max-w-[450px] lg:max-w-[450px] h-max lg:max-h-screen mx-auto">
-            {/* SLIDESHOW */}
-            <div className="w-full h-screen relative text-white text-center overflow-hidden">
-              {/* Background slideshow */}
-              {images.map((img, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentImage ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <Image
-                    src={img}
-                    alt={`Slide ${index + 1}`}
-                    fill
-                    priority={index === 0} // slide pertama load cepat
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-
-              {/* Overlay hitam */}
-              <div className="absolute inset-0 bg-[#111111] opacity-50" />
-
-              {/* Konten utama */}
-              <div className="relative w-full h-full pt-[100px] z-10">
-                <div>
-                  <h3 className="text-[15px] font-Comfortaa tracking-[2px]">
-                    PAWIWAHAN
+        <>
+          {/* COVER ATAS */}
+          <div className="w-full sticky left-0 top-0 h-[100vh] ">
+            <Image
+              src="/images/Page 1.jpg"
+              alt="Wedding Background"
+              fill
+              priority
+              className="object-cover object-center"
+            />
+            <div className="lg:max-w-[450px] w-full text-center text-white h-[100vh] mx-auto flex flex-col justify-center items-center">
+              <div className="relative w-full h-full  pt-[100px]">
+                <div className="absolute top-[50%] w-full text-center">
+                  <h3 className="text-[13px] font-Comfortaa tracking-[2px]">
+                    WE INVITE YOU TO <br /> CELEBRATE OUR WEDDING
                   </h3>
                   <h1 className="text-[40px] font-WindSong">
                     Dewa &amp; Sylvana
                   </h1>
                   <p className="text-[14px] font-Comfortaa">2 November 2025</p>
                 </div>
-                <WeddingCountdown />
+
+                <div className="w-full text-center">
+                  <h3 className="text-[18px]">Dear :</h3>
+                  {to ? (
+                    <p className="text-lg mt-2 text-[23px] text-[#e6c643]">
+                      {to}
+                    </p>
+                  ) : (
+                    <p className="text-lg mt-2 text-[23px] text-[#e6c643]">
+                      Tamu Undangan!
+                    </p>
+                  )}
+                </div>
               </div>
 
-              {/* Ornamen bawah */}
-              <div className="w-full h-[100px] bottom-[-40px] z-40 absolute">
-                <Image
-                  src="/images/1.png"
-                  alt="Ornament"
-                  fill
-                  className="object-cover"
+              <div className="absolute bottom-10 flex flex-col items-center">
+                <p className="text-[12px] text-center font-Comfortaa uppercase tracking-[2px] text-white">
+                  Please scroll <br /> to open invitation
+                </p>
+                <img
+                  src="/images/gif2.gif"
+                  alt="Scroll Down"
+                  className="w-[100px] mt-2"
                 />
               </div>
             </div>
+          </div>
+          <div className="w-full flex z-10 relative h-max">
+            <div className="w-full bg-[#111111] md:max-w-[450px] lg:max-w-[450px] h-max lg:max-h-screen mx-auto">
+              {/* SLIDESHOW */}
+              <div className="w-full h-screen relative text-white text-center overflow-hidden">
+                {/* Background slideshow */}
+                {images.map((img, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${
+                      index === currentImage ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`Slide ${index + 1}`}
+                      fill
+                      priority={index === 0} // slide pertama load cepat
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
 
-            {/* OM SWASTYASTU */}
-            {/* <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
+                {/* Overlay hitam */}
+                <div className="absolute inset-0 bg-[#111111] opacity-50" />
+
+                {/* Konten utama */}
+                <div className="relative w-full h-full pt-[100px] z-10">
+                  <div>
+                    <h3 className="text-[15px] font-Comfortaa tracking-[2px]">
+                      PAWIWAHAN
+                    </h3>
+                    <h1 className="text-[40px] font-WindSong">
+                      Dewa &amp; Sylvana
+                    </h1>
+                    <p className="text-[14px] font-Comfortaa">
+                      2 November 2025
+                    </p>
+                  </div>
+                  <WeddingCountdown />
+                </div>
+
+                {/* Ornamen bawah */}
+                <div className="w-full h-[100px] bottom-[-40px] z-40 absolute">
+                  <Image
+                    src="/images/1.png"
+                    alt="Ornament"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* OM SWASTYASTU */}
+              {/* <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
               <div
                 className="w-full h-[100px] top-[-60px] z-50 text-white text-center absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
                 style={{ backgroundImage: "url('/images/1.png')" }}
@@ -227,329 +233,330 @@ export default function Home() {
                 (Manusa Yadnya Pawiwahan)
               </p>
             </div> */}
-            <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
-              {/* background image pakai Image fill */}
-              <div className="absolute top-[-60px] w-full h-[100px] z-0">
-                <Image
-                  src="/images/1.png"
-                  alt="Decoration"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                  quality={80}
-                />
-              </div>
-
-              <h1 className="text-[30px] font-NotoSerif relative z-10">
-                ᬒᬁ ᬲ᭄ᬯᬲ᭄ᬢ᭄ᬬ <span className="ml-[5px]">ᬲ᭄ᬢᬸ</span>
-              </h1>
-              <p className="text-[10px] mt-5 font-Comfortaa w-[85%] relative z-10">
-                By the grace and blessings of Ida Sang Hyang Widhi Wasa/God
-                Almighty, we cordially invite you to our wedding ceremony
-                (Manusa Yadnya Pawiwahan)
-              </p>
-            </div>
-
-            {/* MEMPELAI */}
-            <div className="w-full flex px-[10px] flex-col gap-5 pt-[100px] items-center justify-center bg-[#111111] text-white h-max">
-              <div className="w-[85%] h-max">
-                <div className="w-full flex flex-col justify-center items-center pb-[20px]">
-                  <h3 className="text-[15px] font-Comfortaa tracking-[2px]">
-                    PAWIWAHAN
-                  </h3>
-                </div>
-
-                <div className="flex flex-col">
-                  <div
-                    data-aos="fade-left"
-                    className="w-full h-[450px] flex justify-start relative"
-                  >
-                    {/* background image pakai next/image */}
-                    <Image
-                      src="/images/nova3.jpg"
-                      alt="Nova 3"
-                      fill
-                      className="object-cover object-center"
-                      priority
-                      quality={80}
-                    />
-                    {/* border decorations */}
-                    <div className="absolute w-[30%] border-r-2 border-b-2 border-white h-[85%] right-[-5px] bottom-[-5px]" />
-                    <div className="absolute w-[25%] border-r-2 border-b-2 border-[#e6c643] h-[80%] right-[-10px] bottom-[-10px]" />
-                  </div>
-
-                  <div className="text-left mt-2">
-                    <h1 className="text-[35px] font-allison tracking-[5px]">
-                      Dewa Gde Nova Hariadhi
-                    </h1>
-                    <p className="text-[10px] text-left font-Comfortaa w-full">
-                      Son of Mr. Dewa Putu Gede Raka & Mrs. Desak Ayu Suartini
-                    </p>
-                  </div>
-
-                  <div
-                    data-aos="fade-right"
-                    className="w-full h-[450px] flex justify-start relative mt-10"
-                  >
-                    {/* background image pakai next/image */}
-                    <Image
-                      src="/images/nova4.jpg"
-                      alt="Nova 4"
-                      fill
-                      className="object-cover object-center"
-                      priority
-                      quality={80}
-                    />
-                    {/* border decorations */}
-                    <div className="absolute w-[30%] border-l-2 border-t-2 border-white h-[85%] left-[-5px] top-[-5px]" />
-                    <div className="absolute w-[25%] border-l-2 border-t-2 border-[#e6c643] h-[80%] left-[-10px] top-[-10px]" />
-                  </div>
-
-                  <div className="text-right mt-2">
-                    <h1 className="text-[35px] tracking-[5px] font-allison">
-                      Sylvana Yulianti
-                    </h1>
-                    <p className="text-[10px] font-Comfortaa text-right w-full">
-                      Daughter of Mr. Sri Didik Purwanto & Mrs. Titik Sugiyanti
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* VIDEO (diganti placeholder gambar) */}
-            <div className="w-full py-[100px] flex px-[10px] flex-col gap-5 items-center justify-center bg-[#111111] text-white h-max">
-              <div className="w-[85%] h-[180px] max-h-[180px] flex justify-center relative">
-                {/* border dekorasi */}
-                <div className="absolute lg:top-[-5px] md:top-[-5px] w-[102%] z-10 top-[-7px] border-b-0 border-2 border-white h-[100%]" />
-                <div className="absolute lg:top-[-10px] md:top-[-10px] z-10 top-[-12px] border-b-0 w-[104%] border-2 border-[#e6c643] h-[100%]" />
-
-                {/* background image pakai next/image */}
-                <div data-aos="fade-up" className="w-full h-[200px] relative">
+              <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
+                {/* background image pakai Image fill */}
+                <div className="absolute top-[-60px] w-full h-[100px] z-0">
                   <Image
-                    src="/images/Page video.jpg"
-                    alt="Page video"
+                    src="/images/1.png"
+                    alt="Decoration"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                    quality={80}
+                  />
+                </div>
+
+                <h1 className="text-[30px] font-NotoSerif relative z-10">
+                  ᬒᬁ ᬲ᭄ᬯᬲ᭄ᬢ᭄ᬬ <span className="ml-[5px]">ᬲ᭄ᬢᬸ</span>
+                </h1>
+                <p className="text-[10px] mt-5 font-Comfortaa w-[85%] relative z-10">
+                  By the grace and blessings of Ida Sang Hyang Widhi Wasa/God
+                  Almighty, we cordially invite you to our wedding ceremony
+                  (Manusa Yadnya Pawiwahan)
+                </p>
+              </div>
+
+              {/* MEMPELAI */}
+              <div className="w-full flex px-[10px] flex-col gap-5 pt-[100px] items-center justify-center bg-[#111111] text-white h-max">
+                <div className="w-[85%] h-max">
+                  <div className="w-full flex flex-col justify-center items-center pb-[20px]">
+                    <h3 className="text-[15px] font-Comfortaa tracking-[2px]">
+                      PAWIWAHAN
+                    </h3>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <div
+                      data-aos="fade-left"
+                      className="w-full h-[450px] flex justify-start relative"
+                    >
+                      {/* background image pakai next/image */}
+                      <Image
+                        src="/images/nova3.jpg"
+                        alt="Nova 3"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                        quality={80}
+                      />
+                      {/* border decorations */}
+                      <div className="absolute w-[30%] border-r-2 border-b-2 border-white h-[85%] right-[-5px] bottom-[-5px]" />
+                      <div className="absolute w-[25%] border-r-2 border-b-2 border-[#e6c643] h-[80%] right-[-10px] bottom-[-10px]" />
+                    </div>
+
+                    <div className="text-left mt-2">
+                      <h1 className="text-[35px] font-allison tracking-[5px]">
+                        Dewa Gde Nova Hariadhi
+                      </h1>
+                      <p className="text-[10px] text-left font-Comfortaa w-full">
+                        Son of Mr. Dewa Putu Gede Raka & Mrs. Desak Ayu Suartini
+                      </p>
+                    </div>
+
+                    <div
+                      data-aos="fade-right"
+                      className="w-full h-[450px] flex justify-start relative mt-10"
+                    >
+                      {/* background image pakai next/image */}
+                      <Image
+                        src="/images/nova4.jpg"
+                        alt="Nova 4"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                        quality={80}
+                      />
+                      {/* border decorations */}
+                      <div className="absolute w-[30%] border-l-2 border-t-2 border-white h-[85%] left-[-5px] top-[-5px]" />
+                      <div className="absolute w-[25%] border-l-2 border-t-2 border-[#e6c643] h-[80%] left-[-10px] top-[-10px]" />
+                    </div>
+
+                    <div className="text-right mt-2">
+                      <h1 className="text-[35px] tracking-[5px] font-allison">
+                        Sylvana Yulianti
+                      </h1>
+                      <p className="text-[10px] font-Comfortaa text-right w-full">
+                        Daughter of Mr. Sri Didik Purwanto & Mrs. Titik
+                        Sugiyanti
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* VIDEO (diganti placeholder gambar) */}
+              <div className="w-full py-[100px] flex px-[10px] flex-col gap-5 items-center justify-center bg-[#111111] text-white h-max">
+                <div className="w-[85%] h-[180px] max-h-[180px] flex justify-center relative">
+                  {/* border dekorasi */}
+                  <div className="absolute lg:top-[-5px] md:top-[-5px] w-[102%] z-10 top-[-7px] border-b-0 border-2 border-white h-[100%]" />
+                  <div className="absolute lg:top-[-10px] md:top-[-10px] z-10 top-[-12px] border-b-0 w-[104%] border-2 border-[#e6c643] h-[100%]" />
+
+                  {/* background image pakai next/image */}
+                  <div data-aos="fade-up" className="w-full h-[200px] relative">
+                    <Image
+                      src="/images/Page video.jpg"
+                      alt="Page video"
+                      fill
+                      className="object-cover object-center"
+                      quality={80}
+                      priority
+                    />
+                  </div>
+
+                  {/* text */}
+                  <h1 className="text-[18px] w-[85%] leading-[25px] font-charmonman absolute bottom-[-45px] font-light text-center">
+                    Every time I see you, I find the comfort I’ve been searching
+                    for.
+                  </h1>
+                </div>
+              </div>
+
+              {/* WEDDING EVENT */}
+              <div className="text-center relative bg-[#111111] z-50 overflow-hidden mt-7 gap-2 py-[150px] flex text-white flex-col items-center justify-center px-[10px]">
+                {/* overlay hitam */}
+                <div className="absolute w-full inset-0 bg-[#111111] opacity-50 z-10" />
+
+                {/* hiasan atas */}
+                <div className="absolute w-full h-[200px] top-[-25px] z-20 transition-all duration-1000">
+                  <Image
+                    src="/images/hiasan3.png"
+                    alt="Hiasan 3"
                     fill
                     className="object-cover object-center"
                     quality={80}
-                    priority
                   />
                 </div>
 
-                {/* text */}
-                <h1 className="text-[18px] w-[85%] leading-[25px] font-charmonman absolute bottom-[-45px] font-light text-center">
-                  Every time I see you, I find the comfort I’ve been searching
-                  for.
+                {/* hiasan kanan bawah */}
+                <div className="absolute w-full h-[200px] bottom-0 right-[-200px] z-20 transition-all duration-1000">
+                  <Image
+                    src="/images/hiasan5.png"
+                    alt="Hiasan 5"
+                    fill
+                    className="object-cover object-center"
+                    quality={80}
+                  />
+                </div>
+
+                {/* hiasan kiri bawah (mirror) */}
+                <div className="absolute w-full h-[200px] bottom-0 right-[200px] z-20 scale-x-[-1] transition-all duration-1000">
+                  <Image
+                    src="/images/hiasan5.png"
+                    alt="Hiasan 5 mirrored"
+                    fill
+                    className="object-cover object-center"
+                    quality={80}
+                  />
+                </div>
+
+                {/* konten utama */}
+                <h1 className="text-[13px] uppercase mt-10 z-30 font-Comfortaa tracking-[4px]">
+                  our wedding event
                 </h1>
+                <p className="text-[28px] mt-5 z-30 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
+                  Pawiwahan
+                </p>
+                <p className="text-[12px] mt-5 z-30 uppercase tracking-[2px] font-Comfortaa w-[85%]">
+                  Sunday, November 2, 2025
+                </p>
+                <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-30">
+                  Time: 3:00 PM – 5:00 PM WITA
+                </h1>
+                <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-30 tracking-[2px]">
+                  Taman Prakerti Bhuana
+                </h1>
+
+                <p className="text-[28px] mt-5 z-30 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
+                  Reception
+                </p>
+                <p className="text-[12px] mt-5 z-30 uppercase tracking-[2px] font-Comfortaa w-[85%]">
+                  Sunday, November 2, 2025
+                </p>
+                <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-30">
+                  Time: 5:00 PM – 8:00 PM WITA
+                </h1>
+                <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-30 tracking-[2px]">
+                  Taman Prakerti Bhuana
+                </h1>
+                <p className="text-[12px] uppercase mt-5 z-30 tracking-[2px] font-Comfortaa w-[85%]">
+                  Beng, Kabupaten <br /> Gianyar, Bali
+                </p>
+
+                <a
+                  className="bg-gradient-to-r text-[13px] from-[#e6c643] to-[#c8a530] text-black mt-5 font-Comfortaa px-10 py-2 z-[100]"
+                  href="https://maps.app.goo.gl/BDTCXj1127ALtCCD7"
+                >
+                  Get Direction
+                </a>
               </div>
-            </div>
 
-            {/* WEDDING EVENT */}
-            <div className="text-center relative bg-[#111111] z-50 overflow-hidden mt-7 gap-2 py-[150px] flex text-white flex-col items-center justify-center px-[10px]">
-              {/* overlay hitam */}
-              <div className="absolute w-full inset-0 bg-[#111111] opacity-50 z-10" />
+              <div className="relative mt-[-50px] lg:mt-0">
+                <ZoomParallax />
+              </div>
 
-              {/* hiasan atas */}
-              <div className="absolute w-full h-[200px] top-[-25px] z-20 transition-all duration-1000">
+              <div className="h-max overflow-hidden text-white">
+                <HorizontalScrollSlider />
+              </div>
+
+              {/* UCAPAN */}
+              <div className="w-full  mt-[-500px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat">
                 <Image
-                  src="/images/hiasan3.png"
-                  alt="Hiasan 3"
+                  src="/images/bgForm.jpg"
+                  alt="Background RSVP"
                   fill
-                  className="object-cover object-center"
-                  quality={80}
+                  priority
+                  className="object-cover object-[80%_40%] z-0"
                 />
-              </div>
+                <div className="z-50">
+                  <div className="w-[85%]  mx-auto">
+                    <p className="text-left font-NotoSerif text-[23px]">
+                      RSVP & Wishes
+                    </p>
+                    <p className="text-left font-Comfortaa mt-3 text-[13px]">
+                      We kindly ask you to confirm your attendance and feel free
+                      to leave your wishes below. It bring us great joy to
+                      celebrate this meaningful day with you.
+                    </p>
 
-              {/* hiasan kanan bawah */}
-              <div className="absolute w-full h-[200px] bottom-0 right-[-200px] z-20 transition-all duration-1000">
-                <Image
-                  src="/images/hiasan5.png"
-                  alt="Hiasan 5"
-                  fill
-                  className="object-cover object-center"
-                  quality={80}
-                />
-              </div>
-
-              {/* hiasan kiri bawah (mirror) */}
-              <div className="absolute w-full h-[200px] bottom-0 right-[200px] z-20 scale-x-[-1] transition-all duration-1000">
-                <Image
-                  src="/images/hiasan5.png"
-                  alt="Hiasan 5 mirrored"
-                  fill
-                  className="object-cover object-center"
-                  quality={80}
-                />
-              </div>
-
-              {/* konten utama */}
-              <h1 className="text-[13px] uppercase mt-10 z-30 font-Comfortaa tracking-[4px]">
-                our wedding event
-              </h1>
-              <p className="text-[28px] mt-5 z-30 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
-                Pawiwahan
-              </p>
-              <p className="text-[12px] mt-5 z-30 uppercase tracking-[2px] font-Comfortaa w-[85%]">
-                Sunday, November 2, 2025
-              </p>
-              <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-30">
-                Time: 3:00 PM – 5:00 PM WITA
-              </h1>
-              <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-30 tracking-[2px]">
-                Taman Prakerti Bhuana
-              </h1>
-
-              <p className="text-[28px] mt-5 z-30 font-[500] tracking-[2px] font-NotoSerif w-[85%]">
-                Resepsi
-              </p>
-              <p className="text-[12px] mt-5 z-30 uppercase tracking-[2px] font-Comfortaa w-[85%]">
-                Sunday, November 2, 2025
-              </p>
-              <h1 className="text-[12px] uppercase mt-5 tracking-[2px] font-Comfortaa z-30">
-                Time: 5:00 PM – 8:00 PM WITA
-              </h1>
-              <h1 className="text-[12px] mt-5 font-Comfortaa uppercase z-30 tracking-[2px]">
-                Taman Prakerti Bhuana
-              </h1>
-              <p className="text-[12px] uppercase mt-5 z-30 tracking-[2px] font-Comfortaa w-[85%]">
-                Beng, Kabupaten <br /> Gianyar, Bali
-              </p>
-
-              <a
-                className="bg-gradient-to-r text-[13px] from-[#e6c643] to-[#c8a530] text-black mt-5 font-Comfortaa px-10 py-2 z-[100]"
-                href="https://maps.app.goo.gl/BDTCXj1127ALtCCD7"
-              >
-                Get Direction
-              </a>
-            </div>
-
-            <div className="relative mt-[-50px] lg:mt-0">
-              <ZoomParallax />
-            </div>
-
-            <div className="h-max overflow-hidden text-white">
-              <HorizontalScrollSlider />
-            </div>
-
-            {/* UCAPAN */}
-            <div className="w-full  mt-[-500px] h-[100vh] flex flex-col items-center justify-center text-white relative bg-cover bg-[80%_40%] bg-no-repeat">
-              <Image
-                src="/images/bgForm.jpg"
-                alt="Background RSVP"
-                fill
-                priority
-                className="object-cover object-[80%_40%] z-0"
-              />
-              <div className="z-50">
-                <div className="w-[85%]  mx-auto">
-                  <p className="text-left font-NotoSerif text-[23px]">
-                    RSVP & Wishes
-                  </p>
-                  <p className="text-left font-Comfortaa mt-3 text-[13px]">
-                    We kindly ask you to confirm your attendance and feel free
-                    to leave your wishes below. It bring us great joy to
-                    celebrate this meaningful day with you.
-                  </p>
-
-                  <form
-                    onSubmit={handleSubmit}
-                    className="mt-4 flex h-max flex-col font-Comfortaa gap-4 py-6 shadow-md relative"
-                  >
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      value={nama}
-                      onChange={(e) => setNama(e.target.value)}
-                      className="font-Comfortaa border-b-2 border-white bg-transparent text-[13px] p-2 text-white focus:outline-none focus:border-[#e6c643] transition duration-300 placeholder-white"
-                      required
-                    />
-
-                    <select
-                      value={konfirmasiKehadiran}
-                      onChange={(e) => setKonfirmasiKehadiran(e.target.value)}
-                      className="border-b-2 border-white bg-transparent p-2 text-white text-[13px] focus:outline-none focus:border-[#e6c643] transition duration-300"
+                    <form
+                      onSubmit={handleSubmit}
+                      className="mt-4 flex h-max flex-col font-Comfortaa gap-4 py-6 shadow-md relative"
                     >
-                      <option
-                        value="Hadir"
-                        className="text-black font-Comfortaa"
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        value={nama}
+                        onChange={(e) => setNama(e.target.value)}
+                        className="font-Comfortaa border-b-2 border-white bg-transparent text-[13px] p-2 text-white focus:outline-none focus:border-[#e6c643] transition duration-300 placeholder-white"
+                        required
+                      />
+
+                      <select
+                        value={konfirmasiKehadiran}
+                        onChange={(e) => setKonfirmasiKehadiran(e.target.value)}
+                        className="border-b-2 border-white bg-transparent p-2 text-white text-[13px] focus:outline-none focus:border-[#e6c643] transition duration-300"
                       >
-                        Present
-                      </option>
-                      <option
-                        value="Tidak Hadir"
-                        className="text-black font-Comfortaa"
-                      >
-                        Absent
-                      </option>
-                    </select>
-                    <select
-                      value={jumlahHadir}
-                      onChange={(e) => setJumlahHadir(e.target.value)}
-                      className={`border-b-2 border-white bg-transparent p-2 text-white text-[13px] focus:outline-none focus:border-[#e6c643] transition duration-300 ${
-                        konfirmasiKehadiran === "Tidak Hadir"
-                          ? "opacity-50 cursor-not-allowed"
-                          : ""
-                      }`}
-                      required
-                      disabled={konfirmasiKehadiran === "Tidak Hadir"}
-                    >
-                      <option value="" disabled hidden>
-                        Number of Pax
-                      </option>
-                      <option value="1" className="text-black font-Comfortaa">
-                        1
-                      </option>
-                      <option value="2" className="text-black font-Comfortaa">
-                        2
-                      </option>
-                      <option value="3" className="text-black font-Comfortaa">
-                        3
-                      </option>
-                    </select>
-                    <textarea
-                      placeholder="Wishes"
-                      value={ucapan}
-                      onChange={(e) => setUcapan(e.target.value)}
-                      className="font-Comfortaa text-[13px] border-b-2 border-white bg-transparent p-2 text-white focus:outline-none focus:border-[#e6c643] transition duration-300 placeholder-white"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="bg-gradient-to-r text-[13px] from-[#e6c643] to-[#c8a530] text-black font-semibold p-2 mt-2 hover:opacity-90 transition duration-300 cursor-pointer z-50"
-                    >
-                      Share Your Wishes
-                    </button>
-                  </form>
-                </div>
-
-                <div className="flex items-center justify-center my-6">
-                  <div
-                    className="w-full h-[100px] text-white text-center absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                    style={{ backgroundImage: "url('/images/hiasan8.png')" }}
-                  />
-                </div>
-
-                <div className="max-h-[200px] z-50 overflow-y-auto p-4 mt-4">
-                  <ul className="space-y-3">
-                    {guests
-                      .slice()
-                      .reverse()
-                      .map((guest) => (
-                        <li
-                          key={guest._id}
-                          className="border-b-2 w-[85%] z-50 mx-auto p-3 flex justify-between items-center"
+                        <option
+                          value="Hadir"
+                          className="text-black font-Comfortaa"
                         >
-                          <div>
-                            <p className="text-white text-[13px]">
-                              <strong className="text-[#e6c643]">
-                                {guest.nama}
-                              </strong>
-                              : {guest.ucapan}
-                            </p>
-                            {/* ({guest.konfirmasiKehadiran}) */}
-                          </div>
+                          Present
+                        </option>
+                        <option
+                          value="Tidak Hadir"
+                          className="text-black font-Comfortaa"
+                        >
+                          Absent
+                        </option>
+                      </select>
+                      <select
+                        value={jumlahHadir}
+                        onChange={(e) => setJumlahHadir(e.target.value)}
+                        className={`border-b-2 border-white bg-transparent p-2 text-white text-[13px] focus:outline-none focus:border-[#e6c643] transition duration-300 ${
+                          konfirmasiKehadiran === "Tidak Hadir"
+                            ? "opacity-50 cursor-not-allowed"
+                            : ""
+                        }`}
+                        required
+                        disabled={konfirmasiKehadiran === "Tidak Hadir"}
+                      >
+                        <option value="" disabled hidden>
+                          Number of Pax
+                        </option>
+                        <option value="1" className="text-black font-Comfortaa">
+                          1
+                        </option>
+                        <option value="2" className="text-black font-Comfortaa">
+                          2
+                        </option>
+                        <option value="3" className="text-black font-Comfortaa">
+                          3
+                        </option>
+                      </select>
+                      <textarea
+                        placeholder="Wishes"
+                        value={ucapan}
+                        onChange={(e) => setUcapan(e.target.value)}
+                        className="font-Comfortaa text-[13px] border-b-2 border-white bg-transparent p-2 text-white focus:outline-none focus:border-[#e6c643] transition duration-300 placeholder-white"
+                        required
+                      />
+                      <button
+                        type="submit"
+                        className="bg-gradient-to-r text-[13px] from-[#e6c643] to-[#c8a530] text-black font-semibold p-2 mt-2 hover:opacity-90 transition duration-300 cursor-pointer z-50"
+                      >
+                        Share Your Wishes
+                      </button>
+                    </form>
+                  </div>
 
-                          {/* Contoh tombol hapus (opsional)
+                  <div className="flex items-center justify-center my-6">
+                    <div
+                      className="w-full h-[100px] text-white text-center absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
+                      style={{ backgroundImage: "url('/images/hiasan8.png')" }}
+                    />
+                  </div>
+
+                  <div className="max-h-[200px] z-50 overflow-y-auto p-4 mt-4">
+                    <ul className="space-y-3">
+                      {guests
+                        .slice()
+                        .reverse()
+                        .map((guest) => (
+                          <li
+                            key={guest._id}
+                            className="border-b-2 w-[85%] z-50 mx-auto p-3 flex justify-between items-center"
+                          >
+                            <div>
+                              <p className="text-white text-[13px]">
+                                <strong className="text-[#e6c643]">
+                                  {guest.nama}
+                                </strong>
+                                : {guest.ucapan}
+                              </p>
+                              {/* ({guest.konfirmasiKehadiran}) */}
+                            </div>
+
+                            {/* Contoh tombol hapus (opsional)
                           <button
                             onClick={() => handleDelete(guest._id)}
                             className="text-xs text-red-400 hover:text-red-300"
@@ -557,43 +564,44 @@ export default function Home() {
                             Hapus
                           </button>
                           */}
-                        </li>
-                      ))}
-                  </ul>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Wedding Gifts (opsional) */}
+              {/* ... */}
+              <div className="w-full text-center relative bg-[#111111] z-50 overflow-hidden gap-2 py-[100px] flex text-white flex-col items-center px-[10px] h-max">
+                <div className="flex flex-col justify-center items-center">
+                  <h1 className="text-[30px] font-NotoSerif">Thankyou</h1>
+                  <p className="text-[10px] mt-5 font-Comfortaa w-[70%]">
+                    Looking forward to having you with us and creating special
+                    memories together at our event. Don’t miss it!
+                  </p>
+                </div>
+
+                {/* Ganti backgroundImage jadi Image fill */}
+                <div className="w-[75%] mt-5 h-[400px] relative">
+                  <Image
+                    src="/images/Thank you.jpg"
+                    alt="Thank you"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+
+                <div className="flex flex-col justify-center items-center">
+                  <h1 className="text-[30px] mt-5 font-NotoSerif">
+                    ᬑᬁ ᬰᬦ᭄ᬢᬶ ᬰᬦ᭄ᬢᬶ ᬰᬦ᭄ᬢᬶ ᬑᬁ
+                  </h1>
                 </div>
               </div>
             </div>
-
-            {/* Wedding Gifts (opsional) */}
-            {/* ... */}
-            <div className="w-full text-center relative bg-[#111111] z-50 overflow-hidden gap-2 py-[100px] flex text-white flex-col items-center px-[10px] h-max">
-              <div className="flex flex-col justify-center items-center">
-                <h1 className="text-[30px] font-NotoSerif">Thankyou</h1>
-                <p className="text-[10px] mt-5 font-Comfortaa w-[70%]">
-                  Looking forward to having you with us and creating special
-                  memories together at our event. Don’t miss it!
-                </p>
-              </div>
-
-              {/* Ganti backgroundImage jadi Image fill */}
-              <div className="w-[75%] mt-5 h-[400px] relative">
-                <Image
-                  src="/images/Thank you.jpg"
-                  alt="Thank you"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-
-              <div className="flex flex-col justify-center items-center">
-                <h1 className="text-[30px] mt-5 font-NotoSerif">
-                  ᬑᬁ ᬰᬦ᭄ᬢᬶ ᬰᬦ᭄ᬢᬶ ᬰᬦ᭄ᬢᬶ ᬑᬁ
-                </h1>
-              </div>
-            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

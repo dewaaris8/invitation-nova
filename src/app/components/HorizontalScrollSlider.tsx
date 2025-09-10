@@ -83,8 +83,8 @@ const HorizontalScrollSlider = () => {
       >
         Our Gallery <br />
         <span className="font-WindSong text-center text-white text-[40px] tracking-[0px]">
-          <span className="text-[45px]">N</span>ova &{" "}
-          <span className="text-[45px]">S</span>ilvi
+          <span className="text-[45px]">D</span>ewa &{" "}
+          <span className="text-[45px]">S</span>ylvana
         </span>
       </div>
 
