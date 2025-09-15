@@ -11,6 +11,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import HorizontalScrollSlider from "./components/HorizontalScrollSlider";
 import { useSearchParams } from "next/navigation";
+import { FaPlay, FaPause } from "react-icons/fa";
 
 const images = [
   "/images/slide1.jpg",
@@ -29,10 +30,21 @@ export interface Guest {
 export default function Home() {
   const searchParams = useSearchParams();
   const to = searchParams.get("to");
-
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [loading, setLoading] = useState(true);
+  const handlePreloaderComplete = () => {
+    setLoading(false);
+    if (audioRef.current) {
+      audioRef.current.play().catch((err) => {
+        console.log("Autoplay diblokir browser 🚫", err);
+      });
+    }
+  };
   const [nama, setNama] = useState("");
   const [ucapan, setUcapan] = useState("");
   const [konfirmasiKehadiran, setKonfirmasiKehadiran] = useState("Hadir");
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const [guests, setGuests] = useState<Guest[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [jumlahHadir, setJumlahHadir] = useState("");
@@ -113,8 +125,59 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const lenisRef = useRef<Lenis | null>(null);
+
+  useEffect(() => {
+    // Init Lenis
+    const lenis = new Lenis({
+      duration: 1.8, // default duration scroll
+      easing: (t) => 1 - Math.pow(1 - t, 3), // easeOutCubic
+    });
+    lenisRef.current = lenis;
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+  const handleOpenInvitation = () => {
+    const target = document.getElementById("content");
+    if (target && lenisRef.current) {
+      lenisRef.current.scrollTo(target, {
+        duration: 2.5, // custom durasi lebih lama (lebih pelan)
+        easing: (t) => t * (2 - t), // easeOutQuad
+      });
+    }
+
+    // Putar musik setelah klik
+    if (audioRef.current && !isPlaying) {
+      audioRef.current.play().catch((err) => {
+        console.log("Autoplay blocked:", err);
+      });
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <div className="w-full relative bg-[#111111] h-max">
+      <audio ref={audioRef} src="/music/music.mp3" loop preload="auto" />
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
       {!isLoading && (
@@ -154,19 +217,24 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute bottom-10 flex flex-col items-center">
-                <p className="text-[12px] text-center font-Comfortaa uppercase tracking-[2px] text-white">
-                  Please scroll <br /> to open invitation
-                </p>
-                <img
-                  src="/images/gif2.gif"
-                  alt="Scroll Down"
-                  className="w-[100px] mt-2"
-                />
+              <div className="absolute bottom-10 flex flex-col justify-center items-center">
+                <button
+                  onClick={handleOpenInvitation}
+                  className="flex flex-col items-center  mt-6"
+                >
+                  <p className="text-[12px] text-center font-Comfortaa uppercase tracking-[2px] text-white">
+                    Please click here <br /> to open invitation
+                  </p>
+                  <img
+                    src="/images/gif2.gif"
+                    alt="Scroll Down"
+                    className="w-[100px] mt-2"
+                  />
+                </button>
               </div>
             </div>
           </div>
-          <div className="w-full flex z-10 relative h-max">
+          <div id="content" className="w-full flex z-10 relative h-max">
             <div className="w-full bg-[#111111] md:max-w-[450px] lg:max-w-[450px] h-max lg:max-h-screen mx-auto">
               {/* SLIDESHOW */}
               <div className="w-full h-screen relative text-white text-center overflow-hidden">
@@ -217,23 +285,16 @@ export default function Home() {
                   />
                 </div>
               </div>
-
-              {/* OM SWASTYASTU */}
-              {/* <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
               <div
-                className="w-full h-[100px] top-[-60px] z-50 text-white text-center absolute bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                style={{ backgroundImage: "url('/images/1.png')" }}
-              />
-              <h1 className="text-[30px] font-NotoSerif">
-                ᬒᬁ ᬲ᭄ᬯᬲ᭄ᬢ᭄ᬬ <span className="ml-[5px]">ᬲ᭄ᬢᬸ</span>
-              </h1>
-              <p className="text-[10px] mt-5 font-Comfortaa w-[85%]">
-                By the grace and blessings of Ida Sang Hyang Widhi Wasa/God
-                Almighty, we cordially invite you to our wedding ceremony
-                (Manusa Yadnya Pawiwahan)
-              </p>
-            </div> */}
-              <div className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]">
+                id="content"
+                className="text-center relative bg-[#111111] z-50 overflow-hidden gap-2 pt-[100px] flex text-white flex-col items-center px-[10px]"
+              >
+                <button
+                  onClick={toggleMusic}
+                  className="fixed bottom-5 z-[100] right-5 p-3  border-2 border-[#e6c643] text-[#e6c643] rounded-full shadow-md hover:bg-[#e6c643] hover:text-black transition"
+                >
+                  {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
+                </button>
                 {/* background image pakai Image fill */}
                 <div className="absolute top-[-60px] w-full h-[100px] z-0">
                   <Image
@@ -480,13 +541,13 @@ export default function Home() {
                           value="Hadir"
                           className="text-black font-Comfortaa"
                         >
-                          Present
+                          Yes
                         </option>
                         <option
                           value="Tidak Hadir"
                           className="text-black font-Comfortaa"
                         >
-                          Absent
+                          No
                         </option>
                       </select>
                       <select
