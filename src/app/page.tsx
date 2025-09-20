@@ -42,7 +42,7 @@ export default function Home() {
   };
   const [nama, setNama] = useState("");
   const [ucapan, setUcapan] = useState("");
-  const [konfirmasiKehadiran, setKonfirmasiKehadiran] = useState("Hadir");
+  const [konfirmasiKehadiran, setKonfirmasiKehadiran] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
 
   const [guests, setGuests] = useState<Guest[]>([]);
@@ -81,7 +81,7 @@ export default function Home() {
       fetchGuests();
       setNama("");
       setUcapan("");
-      setKonfirmasiKehadiran("Hadir");
+      setKonfirmasiKehadiran("");
       setJumlahHadir(""); // reset
     }
   };
@@ -413,7 +413,7 @@ export default function Home() {
               </div>
 
               {/* WEDDING EVENT */}
-              <div className="text-center relative bg-[#111111] z-50 overflow-hidden mt-7 gap-2 py-[150px] flex text-white flex-col items-center justify-center px-[10px]">
+              <div className="text-center relative bg-[#111111] z-20 overflow-hidden mt-7 gap-2 py-[150px] flex text-white flex-col items-center justify-center px-[10px]">
                 {/* overlay hitam */}
                 <div className="absolute w-full inset-0 bg-[#111111] opacity-50 z-10" />
 
@@ -537,6 +537,9 @@ export default function Home() {
                         onChange={(e) => setKonfirmasiKehadiran(e.target.value)}
                         className="border-b-2 border-white bg-transparent p-2 text-white text-[13px] focus:outline-none focus:border-[#e6c643] transition duration-300"
                       >
+                        <option value="" disabled hidden>
+                          Confirmation of Attendance
+                        </option>
                         <option
                           value="Hadir"
                           className="text-black font-Comfortaa"
